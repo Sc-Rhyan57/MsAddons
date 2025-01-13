@@ -76,7 +76,7 @@ Aqui está uma visão geral dos recursos disponíveis para os addons MsDoors.
 | `Input`          | Campo de entrada de texto                    | `{ Type = "Input", Name = "NomeJogador", Arguments = { Default = "Digite seu nome", Callback = function(text) ... end } }` |
 | `Dropdown`       | Lista suspensa                               | `{ Type = "Dropdown", Name = "OpcoesExemplo", Arguments = { Options = {"Opção1", "Opção2"}, Callback = function(val) ... end } }` |
 | `ColorPicker`    | Seletor de cor                               | `{ Type = "ColorPicker", Name = "CorPreferida", Arguments = { Default = Color3.new(1, 0, 0), Callback = function(color) ... end } }` |
-| `KeyPicker`      | Seletor de tecla para atalhos                | `{ Type = "KeyPicker", Name = "TeclaAtalho", Arguments = { Default = Enum.KeyCode.F, Callback = function(key) ... end } }` |
+| `KeyPicker`      | NÃO ESTÁ FUNCIONANDO MAIS!!                | `{ Type = "KeyPicker", Name = "TeclaAtalho", Arguments = { Default = Enum.KeyCode.F, Callback = function(key) ... end } }` |
 
 ---
 
