@@ -7,7 +7,7 @@
 ## 📥 Instalação
 
 1. **Vá para o [Repositório do Msdoors](https://github.com/Sc-Rhyan57/Msdoors) e copie e execute o script em seu executor.**
-2. **Baixe um aplicativo como [ZarChiver](https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver) ou [Gerenciador de Arquivos+](https://play.google.com/store/apps/details?id=com.alphainventor.filemanager), depois de baixar vá para as configurações de algum dos aplicativos selecionado por você e ative a opção "**__VER ARQUIVOS OCULTOS__**" depois disso vá para **Armazenamento Principal/{Pasta do seu Executor}/.msdoors/data/addons**.
+2. **Baixe um aplicativo como [ZarChiver](https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver) ou [Gerenciador de Arquivos+](https://play.google.com/store/apps/details?id=com.alphainventor.filemanager), depois de baixar vá para as configurações de algum dos aplicativos selecionado por você e ative a opção "**__VER ARQUIVOS OCULTOS__**" depois disso vá para **Armazenamento Principal/{Pasta do seu Executor}/.msdoors/addons**.
 
 3. **Adicione Addons** copiando arquivos `.lua` para a pasta `.Msdoors/addons`. O script do MsDoors detectará e carregará automaticamente esses addons quando o jogo for iniciado!
 
