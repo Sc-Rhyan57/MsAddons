@@ -67,6 +67,7 @@ Os addons podem conter diferentes tipos de elementos na interface. Aqui está um
 
 | Tipo         | Descrição |
 |--------------|------------|
+| `Divider`    | Adiciona um divisor|
 | `Label`      | Adiciona um rótulo de texto |
 | `Toggle`     | Adiciona uma opção ativar/desativar |
 | `Button`     | Adiciona um botão clicável |
