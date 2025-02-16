@@ -1,183 +1,142 @@
-# MsDoors Addons - Sistema de Expansão Personalizável
+### 📖 Documentação - Sistema de Addons para MsDoors
+> Bem-vindo à documentação oficial do sistema de addons do **MsDoors**! Aqui você aprenderá como adicionar novos elementos, criar seus próprios addons e utilizar as funcionalidades disponíveis.
 
-> Bem-vindo aos Addons do **MsDoors**! Este repositório permite que você crie e gerencie addons personalizados para o MsDoors com facilidade. Personalize o jogo, adicione novas funcionalidades e tenha controle total sobre a experiência dos jogadores! 🎮✨
+> [!NOTE]
+> Nosso site tutorial para adição de Addons está disponível!
+> [Msdoors/Addons](https://msdoors-gg.vercel.app/Addons)
+---
+
+## 🚀 Introdução
+O sistema de addons do **MsDoors** permite que os jogadores adicionem e personalizem elementos dentro do jogo, utilizando scripts externos armazenados na pasta `msdoors/addons`.
+
+> [!NOTE]
+> Qualquer script colocado na pasta `msdoors/addons` e que siga o formato correto será carregado automaticamente no jogo.
 
 ---
 
-## 📥 Instalação
+## 📂 Estrutura da Pasta
 
-1. **Vá para o [Repositório do Msdoors](https://github.com/Sc-Rhyan57/Msdoors) e copie e execute o script em seu executor.**
-2. **Baixe um aplicativo como [ZarChiver](https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver) ou [Gerenciador de Arquivos+](https://play.google.com/store/apps/details?id=com.alphainventor.filemanager), depois de baixar vá para as configurações de algum dos aplicativos selecionado por você e ative a opção "**__VER ARQUIVOS OCULTOS__**" depois disso vá para **Armazenamento Principal/{Pasta do seu Executor}/.msdoors/addons**.
+Para garantir o funcionamento correto do sistema de addons, a estrutura de pastas deve ser a seguinte:
 
-3. **Adicione Addons** copiando arquivos `.lua` para a pasta `.Msdoors/addons`. O script do MsDoors detectará e carregará automaticamente esses addons quando o jogo for iniciado!
-
-> [!IMPORTANT]
-> Caso não esteja conseguindo usar essa função entre em contato comigo pelo [Discord](https://dsc.gg/BetterStar)!
----
-
-## 🔧 Estrutura de um Addon
-
-Cada addon deve ser um arquivo `.lua` com uma estrutura básica, incluindo **nome**, **título**, **descrição** e **elementos**.
-
-### Estrutura Básica do Addon
-
-```lua
-return {
-    Name = "NomeDoAddon",  -- Nome interno do addon
-    Title = "Título Exibido",  -- Título mostrado na interface
-    Description = "Descrição do que o addon faz",  -- Explicação sobre o addon
-    Elements = {  -- Elementos de UI para o addon
-        -- Defina aqui os elementos do addon
-    }
-}
+```
+msdoors/
+│── addons/
+│   ├── meu_addon.lua
+│   ├── outro_addon.luau
 ```
 
-### Exemplo Simples
+[!WARN]
+> Apenas arquivos `.lua`, `.luau` e `.txt` são carregados pelo sistema.
+
+---
+
+## 🛠️ Como Criar um Addon
+
+Os addons são scripts que seguem um formato específico. Aqui está um exemplo de como criar um addon:
 
 ```lua
 return {
-    Name = "ExemploAddon",
-    Title = "Meu Addon de Exemplo",
-    Description = "Esse addon é um exemplo básico para o sistema MsDoors.",
+    Name = "Exemplo de Addon",
+    Description = "Este é um addon de exemplo!",
     Elements = {
         {
             Type = "Label",
-            Name = "ExemploLabel",
-            Arguments = { "Bem-vindo ao meu addon!" }
+            Arguments = { Text = "Este é um rótulo de exemplo!" }
         },
         {
             Type = "Button",
-            Name = "ExemploBotao",
-            Arguments = {
-                Name = "Clique Aqui",
-                Callback = function()
-                    print("Botão foi clicado!")
-                end
-            }
+            Arguments = { Text = "Clique aqui!", Callback = function() print("Botão pressionado!") end }
         }
     }
 }
 ```
 
----
+Cada addon deve retornar uma tabela com as seguintes chaves:
 
-## 🌐 Lista Completa de Recursos
-
-Aqui está uma visão geral dos recursos disponíveis para os addons MsDoors.
-
-### 📋 Tipos de Elementos Disponíveis
-
-| Tipo de Elemento | Descrição                                    | Exemplo de Uso                                                                                       |
-|------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `Label`          | Exibe um texto fixo na interface             | `{ Type = "Label", Name = "BemVindoLabel", Arguments = { "Bem-vindo!" } }`                           |
-| `Toggle`         | Botão liga/desliga                           | `{ Type = "Toggle", Name = "AtivarFuncao", Arguments = { Default = true, Callback = function(val) ... end } }` |
-| `Button`         | Botão clicável                               | `{ Type = "Button", Name = "BotaoExemplo", Arguments = { Name = "Clique Aqui", Callback = function() ... end } }` |
-| `Slider`         | Controle deslizante                          | `{ Type = "Slider", Name = "Volume", Arguments = { Min = 0, Max = 100, Default = 50, Callback = function(val) ... end } }` |
-| `Input`          | Campo de entrada de texto                    | `{ Type = "Input", Name = "NomeJogador", Arguments = { Default = "Digite seu nome", Callback = function(text) ... end } }` |
-| `Dropdown`       | Lista suspensa                               | `{ Type = "Dropdown", Name = "OpcoesExemplo", Arguments = { Options = {"Opção1", "Opção2"}, Callback = function(val) ... end } }` |
-| `ColorPicker`    | Seletor de cor                               | `{ Type = "ColorPicker", Name = "CorPreferida", Arguments = { Default = Color3.new(1, 0, 0), Callback = function(color) ... end } }` |
-| `KeyPicker`      | NÃO ESTÁ FUNCIONANDO MAIS!!                | `{ Type = "KeyPicker", Name = "TeclaAtalho", Arguments = { Default = Enum.KeyCode.F, Callback = function(key) ... end } }` |
+| Campo       | Tipo    | Descrição |
+|------------|--------|------------|
+| `Name`      | string | Nome do addon |
+| `Description` | string | Breve descrição do addon |
+| `Elements`  | table  | Lista de elementos que serão adicionados |
 
 ---
 
-## 🎨 Personalização de Interface
+## 🔹 Tipos de Elementos Suportados
 
-Abaixo estão as principais opções de personalização de interface que podem ser aplicadas nos elementos dos addons:
+Os addons podem conter diferentes tipos de elementos na interface. Aqui está uma lista dos elementos suportados:
 
-- **Cores Customizáveis**: Defina cores para o fundo, bordas e texto dos elementos. O seletor de cor (`ColorPicker`) permite ajustar cores em RGB.
-- **Opacidade e Transparência**: Ajuste a opacidade dos elementos para um visual mais sutil ou proeminente.
-- **Posições Customizáveis**: Controle a posição dos elementos com propriedades como `AnchorPoint`, `Position` e `Size`.
-  
-### Exemplo de Configuração de Cor e Opacidade
+| Tipo         | Descrição |
+|--------------|------------|
+| `Label`      | Adiciona um rótulo de texto |
+| `Toggle`     | Adiciona uma opção ativar/desativar |
+| `Button`     | Adiciona um botão clicável |
+| `Slider`     | Adiciona um controle deslizante |
+| `Input`      | Adiciona uma caixa de entrada de texto |
+| `Dropdown`   | Adiciona uma lista suspensa |
+| `ColorPicker`| Adiciona um seletor de cor |
+| `KeyPicker`  | Adiciona um seletor de tecla |
 
-```lua
-{
-    Type = "ColorPicker",
-    Name = "CorPersonalizada",
-    Arguments = {
-        Default = Color3.fromRGB(255, 100, 100),  -- Cor padrão
-        Callback = function(corSelecionada)
-            print("Cor selecionada:", corSelecionada)
-        end
-    }
-}
-```
-
-## 📑 Recursos Avançados e Funcionalidades
-
-Os addons de MsDoors suportam funcionalidades avançadas e opções de personalização que ampliam o potencial da experiência. Aqui estão alguns exemplos de funções adicionais que podem ser usadas nos addons:
-
-
-### 🎮 Configurações de Controles e Atalhos
-
-Implemente controles personalizados com `KeyPicker`, permitindo que jogadores definam teclas para acessar funcionalidades específicas:
-
-```lua
-{
-    Type = "KeyPicker",
-    Name = "AtalhoEspecial",
-    Arguments = {
-        Default = Enum.KeyCode.G,
-        Callback = function(teclaPressionada)
-            print("Tecla pressionada:", teclaPressionada)
-        end
-    }
-}
-```
+Cada tipo de elemento possui argumentos específicos que devem ser passados na chave `Arguments`.
 
 ---
 
-## 🛠️ Exemplo Completo de Addon Personalizado
+## 🎨 Exemplo Avançado
 
-Aqui está um exemplo completo de addon para personalizar notificações e controlar aspectos de interface:
+Aqui está um exemplo mais avançado de um addon que inclui diferentes elementos:
 
 ```lua
 return {
-    Name = "PersonalizacaoExemplo",
-    Title = "Addon Personalizável",
-    Description = "Um addon que permite ajustar cores, opacidade e exibir notificações.",
+    Name = "Ferramentas de Desenvolvedor",
+    Description = "Vários utilitários para desenvolvedores!",
     Elements = {
         {
-            Type = "ColorPicker",
-            Name = "CorFundo",
-            Arguments = {
-                Default = Color3.new(1, 1, 1),
-                Callback = function(cor)
-                    print("Cor do fundo alterada para:", cor)
-                end
-            }
+            Type = "Label",
+            Arguments = { Text = "Configurações Gerais" }
+        },
+        {
+            Type = "Toggle",
+            Name = "modo_debug",
+            Arguments = { Text = "Modo Debug", Default = false, Callback = function(state) print("Debug: ", state) end }
         },
         {
             Type = "Slider",
-            Name = "Opacidade",
-            Arguments = {
-                Min = 0,
-                Max = 100,
-                Default = 100,
-                Callback = function(valor)
-                    print("Opacidade definida para:", valor)
-                end
-            }
-        },
-        {
-            Type = "Button",
-            Name = "EnviarNotificacao",
-            Arguments = {
-
-
-                Name = "Notificar",
-                Callback = function()
-                    MsdoorsNotify(
-                        "Alerta Importante", 
-                        "Verifique a nova configuração!", 
-                        "Aviso",
-                        "rbxassetid://6023426923",
-                        Color3.new(1, 0, 0), 
-                        5
-                    )
-                end
-            }
+            Name = "velocidade",
+            Arguments = { Text = "Velocidade", Min = 1, Max = 10, Default = 5, Callback = function(value) print("Velocidade ajustada para: ", value) end }
         }
     }
 }
 ```
+
+---
+
+## 🔄 Como Carregar Novos Addons
+
+Depois de adicionar um novo addon na pasta `msdoors/addons`, reinicie o script para que ele seja carregado automaticamente. Se houver algum erro, ele será exibido no console.
+
+> [!TIP]
+> Certifique-se de que seu addon segue o formato correto para evitar erros.
+
+---
+
+## 🛑 Erros Comuns
+
+Aqui estão alguns erros comuns e como resolvê-los:
+
+| Erro | Causa | Solução |
+|------|-------|---------|
+| `Elemento inválido` | Tipo de elemento incorreto | Verifique se o tipo do elemento está correto |
+| `Erro ao carregar addon` | Sintaxe incorreta no arquivo | Corrija os erros no código do addon |
+| `Pasta 'msdoors/addons' está vazia` | Nenhum addon foi encontrado | Adicione um arquivo de addon e reinicie o script |
+
+---
+
+## 🎯 Conclusão
+
+Agora você sabe como adicionar novos elementos, criar addons personalizados e carregar suas modificações no **MsDoors**! Se tiver dúvidas, verifique os exemplos acima e certifique-se de seguir a estrutura correta.
+
+> [!IMPORTANT]
+> Viu o Tutorial e do mesmo jeito não consgeue adcionar addons ao seu executor? acesse nosso [Discord](https://dsc.gg/Msdoors-gg) para que possamos te ajudar.
+
+
+> [!NOTE]
+> Divirta-se criando seus próprios addons e personalizando sua experiência no jogo! 🚀
