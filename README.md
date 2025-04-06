@@ -3,7 +3,7 @@
 
 > [!NOTE]
 > Nosso site tutorial para adição de Addons está disponível!
-> [Msdoors/Addons](https://msdoors-gg.vercel.app/Addons)
+> [msdoors/addons](https://msdoors-gg.vercel.app/addons)
 ---
 
 ## 🚀 Introdução
